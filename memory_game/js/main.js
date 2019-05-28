@@ -22,6 +22,7 @@ const cards = [
 ];
 
 var cardsInPlay = [];
+var resetButton = document.querySelector('button');
 
 function checkForMatch () {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -40,6 +41,15 @@ function flipCard () {
 	};
 };
 
+function resetGame () {
+	for (i=0; i<cards.length; i++) {
+		var cardElement = document.querySelector('img');
+		cardElement.remove();
+	}
+	cardsInPlay.length = 0;
+	createBoard();
+};
+
 
 function createBoard () {
 	for (i = 0; i < cards.length; i++) {
@@ -51,6 +61,6 @@ function createBoard () {
 	};
 };
 
+resetButton.addEventListener('click', resetGame);
 createBoard();
-
 
